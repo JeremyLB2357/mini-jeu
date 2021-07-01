@@ -8,6 +8,8 @@
 </head>
 <body>
     <h1>Apprendre PHP en orienté objet</h1>
-    
+    <p>
+        <?php require './script/creation_perso.php' ?>
+    </p>
 </body>
 </html>

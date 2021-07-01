@@ -1,7 +1,8 @@
 <?php
 
-require '../classes/personnage.php';
+echo 'test </br>';
+require './classes/personnage.php';
 
-$perso = new Personnage;
+$perso = new Personnage(100, 5, 5, 50);
 
 ?>

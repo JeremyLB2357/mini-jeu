@@ -1,6 +1,4 @@
-<?php
-
-class Personnage 
+<?php class Personnage 
 {
     private $nom;
     private $vie;
@@ -12,6 +10,7 @@ class Personnage
 
     //constructeur
     public function __construct($vie, $force, $intel, $mana){
+        echo 'Bienvenu, votre personnage a été créé !';
         $this->setVie($vie);
         $this->setForce($force);
         $this->setIntel($intel);
