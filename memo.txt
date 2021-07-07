@@ -1,1 +1,7 @@
 Questions sur des notions de cours
+$reponse->fetch(PDO::FETCH_OBJ)
+
+
+faire 2 pages dont 1 pour la création
+
+mettre tout dans un champ de bataille
