@@ -1,0 +1,14 @@
+* {
+    background-color: black;
+    color: white;
+}
+section {
+    border: 1px solid;
+    margin: 10px;
+    padding: 5px;
+}
+.btn {
+    border-radius: 10px;
+    padding: 5px;
+    font-weight: bold;
+}

@@ -9,8 +9,9 @@
     private $experience = 0;
 
     //constructeur
-    public function __construct($vie, $force, $intel, $mana){
+    public function __construct($nom, $vie, $force, $intel, $mana){
         echo 'Bienvenu, votre personnage a été créé !';
+        $this->setNom($nom);
         $this->setVie($vie);
         $this->setForce($force);
         $this->setIntel($intel);
