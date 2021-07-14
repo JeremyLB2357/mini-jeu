@@ -1,29 +1,30 @@
 <?php
+require '../classes/bdd.php';
+require '../src/models/personnage.php';
+require '../src/models/guerrier.php';
+require '../src/models/magicien.php';
+require '../src/models/ranger.php';
 
-require './classes/personnage.php';
+$class = $_POST['classe'];
 
-$champ_bataille = new champ_bataille();
-$champ_bataille->retrieve_character();
-$champ_bataille->fight();
+$bdd = new Database();
+$bdd->connect();
 
-$perso = new Personnage(100, 5, 5, 50);
-
-try {
-    $bdd = new PDO('mysql:host=localhost;dbname=mini-jeu_php;charset=utf8', 'root', '');
-}
-catch (PDOException $e){
-    die('Erreur : ' . $e->getMessage());
-}
-
-$reponse = $bdd->query('SELECT * FROM personnages');
-
-while ($data = $reponse->fetch())
+if ($class === 'guerrier')
 {
-    echo 'nom : ' . $data['nom'];
-    echo 'niveau : ' . $data['niveau'];
+    $perso = new Guerrier($_POST['nom'],100, 5, 5, 50);
 }
-$reponse = $bdd->query('SELECT * FROM personnages');
-while ($data = $reponse->fetch(PDO::FETCH_OBJ))
+elseif ($class === 'magicien')
 {
-    var_dump($data);
+    $perso = new Magicien($_POST['nom'],100, 5, 5, 50);
 }
+elseif ($class === 'ranger')
+{
+    $perso = new Ranger($_POST['nom'],100, 5, 5, 50);
+}
+else{
+    echo 'pas de classe choisie !';
+}
+
+$perso->save($bdd);
+

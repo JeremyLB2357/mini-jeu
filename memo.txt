@@ -1,7 +1,29 @@
 Questions sur des notions de cours
 $reponse->fetch(PDO::FETCH_OBJ)
 
+create plusieurs perso
+les faire se taper
+instaurer un status mort
+réfléchir à des règles de jeu
 
-faire 2 pages dont 1 pour la création
 
-mettre tout dans un champ de bataille
+$do_trt = new hm_traitementsav(sql::get());
+if($do_trt->charger_name('T5959459')){
+    //le traitement existe
+    $do_trt->set_gar_dei_k(55555);
+    $do_trt->save(); //update
+}
+else{
+    //le dossier n'existe pas
+    $do_trt->set_trtnum_s('T5959459');
+    $do_trt->set_gar_dei_k(55555);
+    $do_trt->save(); //insert
+}
+
+$rec = new record(sql::get());
+$rec->set_requete('SELECT * FROM hm_traitementsav WHERE trt_trtnum_s not ilike 'T___U_');
+$rec->run();
+foreach($rec->get_resultats_array() as $line){
+
+
+}

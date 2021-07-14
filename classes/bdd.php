@@ -11,17 +11,17 @@ class Database
 
     //constructeur
     public function __construct(){
-        $this->_host = 'localhost';
-        $this->_name = 'mini-jeu_php';
-        $this->_user = 'root';
-        $this->_password = '';
+        $this->host = 'localhost';
+        $this->name = 'mini-jeu_php';
+        $this->user = 'root';
+        $this->password = '';
     }
     //accesseur
 
     //mutateur
     private function setBdd()
     {
-        $this->_bdd = new PDO('mysql:host=' . $this->_host . ';dbname=' . $this->_name . ';charset=utf8', $this->_user, $this->_password);
+        $this->bdd = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->name . ';charset=utf8', $this->user, $this->password);
     }
 
     //methode
@@ -36,5 +36,13 @@ class Database
         {
             die('Erreur : ' . $e->getMessage());
         }
+    }
+
+    /**
+     * @return PDO
+     */
+    public function getPDO()
+    {
+        return $this->bdd;
     }
 }
